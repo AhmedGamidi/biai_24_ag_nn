@@ -1,0 +1,14 @@
+todo functions:
+
+>crossover
+Takes two chromosomes (parents) and returns a pair of chromosomes (children).
+Randomly chooses a crossover point to exchange genes (bits) of two parents.
+
+>mutate
+Takes  a chromosome, returns nothing
+In a loop the function randomly generates a number between 0.0 and 1.0.
+If this number exceedes the decared mutation rate value, then the gene (bit) changes its value.
+
+>findBest
+Takes a vector of chromosomes (a population), returns a chromosome.
+Compares the best fitness score of each chromosome (individual) and returns the best chromosome.
