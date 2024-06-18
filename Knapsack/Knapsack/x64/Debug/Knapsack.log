@@ -1,7 +1,2 @@
 ﻿  main.cpp
-D:\repos\biai_24_ag_nn\Knapsack\Knapsack\main.cpp(114,59): warning C4267: 'argument': conversion from 'size_t' to '_Ty', possible loss of data
-D:\repos\biai_24_ag_nn\Knapsack\Knapsack\main.cpp(114,59): warning C4267:         with
-D:\repos\biai_24_ag_nn\Knapsack\Knapsack\main.cpp(114,59): warning C4267:         [
-D:\repos\biai_24_ag_nn\Knapsack\Knapsack\main.cpp(114,59): warning C4267:             _Ty=int
-D:\repos\biai_24_ag_nn\Knapsack\Knapsack\main.cpp(114,59): warning C4267:         ]
   Knapsack.vcxproj -> D:\repos\biai_24_ag_nn\Knapsack\x64\Debug\Knapsack.exe

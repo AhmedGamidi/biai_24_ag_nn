@@ -99,3 +99,42 @@ std::vector<int> tournament_selection
     }
     return best_chromosome;
 }
+
+std::pair<std::vector<int>, std::vector<int>> crossover(const std::vector<int>& parent1, const std::vector<int>& parent2) {
+
+    std::mt19937 gen(static_cast<long unsigned int>(std::time(0)));
+    std::uniform_int_distribution<> dis(0, parent1.size() - 1);
+    int crossover_point = dis(gen);
+
+    std::vector<int> child1 = parent1;
+    std::vector<int> child2 = parent2;
+
+    for (int i = crossover_point; i < parent1.size(); ++i) {
+        std::swap(child1[i], child2[i]);
+    }
+    return { child1, child2 };
+}
+
+void mutate(std::vector<int> &chromosome, const double mutation_rate) {
+    std::mt19937 gen(static_cast<long unsigned int>(std::time(0)));
+    std::uniform_real_distribution<> dis(0.0, 1.0);
+
+    for (auto &gene : chromosome) {
+        if (dis(gen) < mutation_rate) {
+            gene = 1 - gene;
+        }
+    }
+}
+
+std::vector<int> findBest(const std::vector<std::vector<int>> &population, std::vector<Item> &items, const unsigned int knapsack_capacity) {
+    int best_fitness = 0;
+    std::vector<int> best_chromosome;
+    for (const std::vector<int> & chromosome : population) {
+        int fitness = calculateFitness(const_cast<std::vector<int>&>(chromosome), items, knapsack_capacity);
+        if (fitness > best_fitness) {
+            best_fitness = fitness;
+            best_chromosome = chromosome;
+        }
+    }
+    return best_chromosome;
+}
