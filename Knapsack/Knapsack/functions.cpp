@@ -66,33 +66,15 @@ std::vector<std::vector<int>> initialize_population(const unsigned int populatio
 //  - Selecting a random chromosome from the selected population
 //  - Calculating its fitness
 //  - Iterating through other chromosomes, comparing the fitness scores of the first and the candidate
-std::vector<int> tournament_selection
-(
-    const std::vector<std::vector<int>> &population, 
-    const unsigned int population_size, 
-    const unsigned int tournament_size,
-    std::vector<Item> &items,
-    const unsigned int knapsack_capacity
-) 
-{
-    //Pseudo random generator
+std::vector<int> tournament_selection(const std::vector<std::vector<int>>& population, const unsigned int tournament_size, std::vector<Item>& items, const unsigned int knapsack_capacity) {
     std::mt19937 gen(static_cast<long unsigned int>(std::time(0)));
-    std::uniform_int_distribution<> dis(0, population_size - 1);
-
-    //Selecting a random chromosome from the population and calculates the fitness of this initial chromosome
+    std::uniform_int_distribution<> dis(0, population.size() - 1);
     std::vector<int> best_chromosome = population[dis(gen)];
     int best_fitness = calculateFitness(best_chromosome, items, knapsack_capacity);
-
-    //Startis from 1 since the first chromosome was already selected
     for (int i = 1; i < tournament_size; ++i) {
-
-        //Randomly select and calculate fitness
         std::vector<int> candidate = population[dis(gen)];
         int candidate_fitness = calculateFitness(candidate, items, knapsack_capacity);
-
-        //Comparing the first chromosome and the candidate chromosome
         if (candidate_fitness > best_fitness) {
-
             best_chromosome = candidate;
             best_fitness = candidate_fitness;
         }
