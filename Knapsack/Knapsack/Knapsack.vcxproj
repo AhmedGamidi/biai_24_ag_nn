@@ -27,7 +27,9 @@
     <ClInclude Include="structures.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="input.txt" />
+    <Text Include="input6.txt" />
+    <Text Include="input7.txt" />
+    <Text Include="input8.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

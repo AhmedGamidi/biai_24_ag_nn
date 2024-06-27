@@ -7,14 +7,14 @@
 
 int main() {
 
-    const unsigned int MAX_GENERATIONS = 7000;
+    const unsigned int MAX_GENERATIONS = 3000;
     const unsigned int POPULATION_SIZE = 100;
 	const unsigned int TOURNAMENT_SIZE = 10;	
-    const double MUTATION_RATE = 0.9;
+    const double MUTATION_RATE = 0.5;
 	
-	//Both input and the capacity are taken from here (PO7): https://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/knapsack_01.html
-	const std::string FILE_INPUT_NAME = "input.txt";
-	const unsigned int CAPACITY = 750;
+	//Both input and the capacity are taken from here: https://people.sc.fsu.edu/~jburkardt/datasets/knapsack_01/knapsack_01.html
+	const std::string FILE_INPUT_NAME = "input8.txt";
+	const unsigned int CAPACITY = 6404180; //= 170, 750, 6404180 for P06, P07, P08 respectively (best values are 1735, 1458, 13549094 resp.)
 
 	std::vector<Item> items = readInput(FILE_INPUT_NAME);
 
